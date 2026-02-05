@@ -35,6 +35,12 @@
 
 namespace fusilli {
 
+#if defined(FUSILLI_PLATFORM_WINDOWS)
+#define FUSILLI_NEWLINE "\r\n"
+#else
+#define FUSILLI_NEWLINE "\n"
+#endif
+
 // Sets an environment variable. Returns 0 on success, non-zero on failure.
 inline int setEnv(const char *name, const char *value) {
 #if defined(FUSILLI_PLATFORM_WINDOWS)
